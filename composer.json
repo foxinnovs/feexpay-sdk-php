@@ -1,5 +1,5 @@
 {
-    "name": "feexpay/feexpayPhp",
+    "name": "feexpay/feexpay-php",
     "type": "library",
     "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money",
     "keywords": [
