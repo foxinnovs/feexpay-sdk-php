@@ -1,18 +1,18 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "feexpay/feexpayPhp",
     "type": "library",
-    "description": ":package_description",
+    "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "Feexpay",
+        "FeexpayPhp"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/Feexpay/FeexpayPhp",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Feexpay",
+            "email": "contact@feexpay.me",
+            "homepage": "https://feexpay.me",
             "role": "Developer"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            ":vendor\\:package_name\\": "src"
+            "Feexpay\\FeexpayPhp\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "Feexpay\\FeexpayPhp\\": "tests"
         }
     },
     "scripts": {
