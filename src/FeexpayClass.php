@@ -20,6 +20,25 @@ class FeexpayClass
 
     }
 
+    public function init(float $amount){
+        $token = $this->token;
+        $id = $this->id;
+
+        echo "
+        <script src='https://api.feexpay.me/feexpay-javascript-sdk/index.js'></script>
+        <script type='text/javascript'>
+
+        FeexPayButton.init('render',{
+             id:'$id',
+             amount:$amount,
+             token:'$token',
+             callback:()=>console.log('Paiment Effectuer'),
+             callback_url:'http://localhost:10004/?wc-api=WC_FeexPay_Gateway&state=28',
+             mode: 'LIVE'
+         })
+     </script><div class='feexpay_button' onClick='addIframe()' style='cursor:pointer;font-family:sans-serif;font-weight:700;width: fit-content;padding: 15px;background-color:darkblue;color:white;border-radius:0.4rem;text-align:center;border:none;outline:none;font-size:0.9rem;'>PAYER $amount Fcfa </div>";
+    }
+
     public function getIdAndMarchanName()
     {
         try {
