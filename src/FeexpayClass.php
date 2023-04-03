@@ -10,7 +10,7 @@ class FeexpayClass
      * Create a new Skeleton Instance
      */
 
-    public function __construct(string $id, string $token, string $callback_url, string $mode)
+    public function __construct($id,$token,$callback_url,$mode)
     {
         // constructor body
         $this->id = $id;
@@ -20,20 +20,20 @@ class FeexpayClass
 
     }
 
-    public function init(float $amount){
+    public function init($amount,$componentId){
         $token = $this->token;
         $id = $this->id;
-
+        $callback_url = $this->callback_url;
+        
         echo "
         <script src='https://api.feexpay.me/feexpay-javascript-sdk/index.js'></script>
         <script type='text/javascript'>
-
-        FeexPayButton.init('render',{
+       
+        FeexPayButton.init('$componentId',{
              id:'$id',
              amount:$amount,
              token:'$token',
-             callback:()=>console.log('Paiment Effectuer'),
-             callback_url:'http://localhost:10004/?wc-api=WC_FeexPay_Gateway&state=28',
+             callback_url:$callback_url,
              mode: 'LIVE'
          })
      </script><div class='feexpay_button' onClick='addIframe()' style='cursor:pointer;font-family:sans-serif;font-weight:700;width: fit-content;padding: 15px;background-color:darkblue;color:white;border-radius:0.4rem;text-align:center;border:none;outline:none;font-size:0.9rem;'>PAYER $amount Fcfa </div>";
