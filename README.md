@@ -33,9 +33,32 @@ $ composer require Feexpay/FeexpayPhp
 
 ## Usage
 
+There are two ways to use the php sdk. 
+
+Use of the SDK functions: 
+
+
 ``` php
-$skeleton = new Feexpay\FeexpayPhp();
-echo $skeleton->echoPhrase('Hello, League!');
+$skeleton = new Feexpay\FeexpayPhp\FeexpayClass("shop's id", "token key API", "shop's id", "callback_url", "mode (LIVE, SANDBOX)");
+$response = $skeleton->paiementLocal("amount", "phone_number", "network (MTN, MOOV)", "Jon Doe","jondoe@gmail.com");
+$status = $skeleton->getPaiementStatus($response);
+
+var_dump($status);
+```
+
+Add a payment button on the user interface:
+
+```
+<div id='button_payee'></div>
+@php
+    $price = 50;
+    $id= "shop's id";
+    $token= "token key api";
+    $callback_url= 'https://www.google.com';
+    $mode='LIVE';
+    $feexpayclass = new Feexpay\FeexpayPhp\FeexpayClass($id, $token, $callback_url, $mode);
+    $result = $feexpayclass->init($price, "button_payee")
+@endphp
 ```
 
 ## Change log
