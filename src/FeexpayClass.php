@@ -36,7 +36,7 @@ class FeexpayClass
              callback_url:$callback_url,
              mode: 'LIVE'
          })
-     </script>";
+        </script>";
     }
 
     public function getIdAndMarchanName()
