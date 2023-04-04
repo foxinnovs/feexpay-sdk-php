@@ -36,7 +36,8 @@ class FeexpayClass
              callback_url:$callback_url,
              mode: 'LIVE'
          })
-     </script><div class='feexpay_button' onClick='addIframe()' style='cursor:pointer;font-family:sans-serif;font-weight:700;width: fit-content;padding: 15px;background-color:darkblue;color:white;border-radius:0.4rem;text-align:center;border:none;outline:none;font-size:0.9rem;'>PAYER $amount Fcfa </div>";
+     </script>
+    //  <div class='feexpay_button' onClick='addIframe()' style='cursor:pointer;font-family:sans-serif;font-weight:700;width: fit-content;padding: 15px;background-color:darkblue;color:white;border-radius:0.4rem;text-align:center;border:none;outline:none;font-size:0.9rem;'>PAYER $amount Fcfa </div>";
     }
 
     public function getIdAndMarchanName()
