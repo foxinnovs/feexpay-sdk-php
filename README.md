@@ -1,11 +1,5 @@
 # FeexpayPhp
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
 
 **Note:** Replace ```Feexpay``` ```LOUGBEGNON``` ```https://feexpay.me``` ```contact@feexpay.me``` ```Feexpay``` ```FeexpayPhp``` ```Php sdk of Feexpay - Online payment solution by credit card and mobile money``` with the appropriate values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), and [composer.json](composer.json) files. You can run `$ php prefill.php` in the command line to replace these values automatically. Don't forget to delete the `prefill.php` file after making these replacements.
 
