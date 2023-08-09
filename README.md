@@ -74,7 +74,7 @@ This guide explains how to use the Feexpay PHP SDK to easily integrate mobile an
 
 1. In a Laravel project, run the following command to install the Feexpay package:
    ```
-   composer require feexpay/feexpay-php
+   composer require feexpayme/feexpay-sdk-php
    ```
 
 2. Create a route in your `web.php` file:
