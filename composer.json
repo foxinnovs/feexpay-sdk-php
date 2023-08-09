@@ -14,5 +14,7 @@
             "email": "amedeelougbegnon3@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "feexpay/feexpay-php": "^1.0"
+    }
 }
