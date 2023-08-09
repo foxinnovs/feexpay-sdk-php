@@ -1,7 +1,7 @@
 {
     "name": "feexpayme/feexpay-sdk-php",
     "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money\"",
-    "version": "1.0",
+    "version": "1.0.1",
     "type": "library",
     "keywords": [
     "Feexpay",
