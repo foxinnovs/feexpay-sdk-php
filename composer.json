@@ -1,5 +1,5 @@
 {
-    "name": "feexpay/feexpay-sdk-php",
+    "name": "feexpayme/feexpay-sdk-php",
     "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money\"",
     "type": "library",
     "license": "MIT",
@@ -15,6 +15,6 @@
         }
     ],
     "require": {
-        "feexpay/feexpay-sdk-php": "^1.0"
+        "feexpayme/feexpay-sdk-php": "^1.0"
     }
 }
