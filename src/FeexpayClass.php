@@ -135,6 +135,8 @@ class FeexpayClass
         string $currency
     )
     {
+
+        
         function curl_post($url, array $post = null, array $options = array())
         {
 
@@ -180,37 +182,39 @@ class FeexpayClass
         if ($nameMarchandExist == true) {
 
             try {
-                $post = array(
-                    "phone" => $phoneNumber,
-                    "amount" => $amount,
-                    "reseau" => $typeCard,
-                    "token" => $this->token,
-                    "shop" => $this->id,
-                    "first_name" => $firstName,
-                    "last_name" => $lastName,
-                    "email" => $email,
-                    "country" => $country,
-                    "address1" => $address,
-                    "district" => $district,
-                    "currency" => $currency
-                );
-                $responseCurlPostPaiement = curl_post("https://api.feexpay.me/api/transactions/card/inittransact/integration", $post);
-                $responseCurlPostPaiementData = json_decode($responseCurlPostPaiement);
+        $post = array(
+            "phone" => $phoneNumber,
+            "amount" => $amount,
+            "reseau" => $typeCard,
+            "token" => $this->token,
+            "shop" => $this->id,
+            "first_name" => $firstName,
+            "last_name" => $lastName,
+            "email" => $email,
+            "country" => $country,
+            "address1" => $address,
+            "district" => $district,
+            "currency" => $currency
+        );
 
-                if ($responseCurlPostPaiementData->status == "FAILED") {
-                    echo "Une erreur s'est produite";
-                } else {
-                    $result = [
-                        'url' => $responseCurlPostPaiementData->url,
-                        'reference' => $responseCurlPostPaiementData->transref,
-                    ];
-                    return $result;
-                }
+        $responseCurlPostPaiement = curl_post("https://api.feexpay.me/api/transactions/card/inittransact/integration", $post);
+        $responseCurlPostPaiementData = json_decode($responseCurlPostPaiement);
 
-            } catch (\Throwable $th) {
-                echo "Erreur inattendue : " . $th->getMessage();
-                echo "Request Not Send";
-            }
+        if (isset($responseCurlPostPaiementData->status) && $responseCurlPostPaiementData->status === "FAILED") {
+            echo "Une erreur s'est produite";
+        } elseif (isset($responseCurlPostPaiementData->url)) {
+            $result = [
+                'url' => $responseCurlPostPaiementData->url,
+                'reference' => $responseCurlPostPaiementData->transref,
+            ];
+            return $result;
+        } else {
+            echo "Réponse inattendue de l'API";
+        }
+    } catch (\Throwable $th) {
+        echo "Erreur inattendue : " . $th->getMessage();
+        echo "Request Not Send";
+    }
 
         } else {
             return false;
@@ -222,19 +226,27 @@ class FeexpayClass
     {
 
         try {
-            $curlGetPaiementWithReference = curl_init("https://api.feexpay.me/api/transactions/getrequesttopay/integration/$paiementRef");
-            curl_setopt($curlGetPaiementWithReference, CURLOPT_CAINFO, __DIR__ . DIRECTORY_SEPARATOR . 'certificats/IXRCERT.crt');
-            curl_setopt($curlGetPaiementWithReference, CURLOPT_RETURNTRANSFER, true);
-            $responseCurlStatus = curl_exec($curlGetPaiementWithReference);
-            $statusData = json_decode($responseCurlStatus);
-            curl_close($curlGetPaiementWithReference);
-            $payer = $statusData->payer;
-            $responseSendArray = array("amount"=>$statusData->amount,"clientNum"=>$payer->partyId,"status"=>$statusData->status);
+        $curlGetPaiementWithReference = curl_init("https://api.feexpay.me/api/transactions/getrequesttopay/integration/$paiementRef");
+        curl_setopt($curlGetPaiementWithReference, CURLOPT_CAINFO, __DIR__ . DIRECTORY_SEPARATOR . 'certificats/IXRCERT.crt');
+        curl_setopt($curlGetPaiementWithReference, CURLOPT_RETURNTRANSFER, true);
+        $responseCurlStatus = curl_exec($curlGetPaiementWithReference);
+        $statusData = json_decode($responseCurlStatus);
+        curl_close($curlGetPaiementWithReference);
 
+        if (isset($statusData->status)) {
+            $payer = $statusData->payer;
+            $responseSendArray = array(
+                "amount" => $statusData->amount,
+                "clientNum" => $payer->partyId,
+                "status" => $statusData->status
+            );
             return $responseSendArray;
-        } catch (\Throwable $th) {
-            echo "Get Status Request Not Send";
+        } else {
+            echo "Réponse inattendue de l'API";
         }
+    } catch (\Throwable $th) {
+        echo "Get Status Request Not Send";
+    }
 
     }
 
