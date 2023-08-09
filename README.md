@@ -138,15 +138,15 @@ This guide explains how to use the Feexpay PHP SDK to easily integrate mobile an
            $skeleton = new FeexpayClass("shop's id", "token key API", "callback_url", "mode (LIVE, SANDBOX)");
             $responseCard = $skeleton->paiementCard("amount", "phoneNumber(66000000)", "typeCard (VISA, MASTERCARD)", "Jon", "Doe", "jondoe@gmail.com", "country(Benin)", "address(Cotonou)", "district(Littoral)", "currency(XOF, USD, EUR)");
 
-            // Afficher la structure de la réponse pour le débogage
+            // Display response structure for debugging purposes
             var_dump($responseCard);
 
-            // Vérification de la présence de la clé "url"
+            // Check for the presence of the "url" key
             if (isset($responseCard["url"])) {
                 $redirectUrl = $responseCard["url"];
                 return redirect()->away($redirectUrl);
             } else {
-                // Gérer le cas où "url" n'est pas présent dans la réponse
+                // Handle the case where "url" is not present in the response
                 return response("Erreur de réponse de paiement")->setStatusCode(500);
             }
        }
