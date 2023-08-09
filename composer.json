@@ -1,20 +1,45 @@
 {
-    "name": "feexpay/feexpay-php",
-    "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money\"",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
+  "name": "feexpayme/feexpay-sdk-php",
+  "description": "Php sdk of Feexpay - Online payment solution by credit card and mobile money\""
+  "version": "1.0.1",
+  "type": "library",
+  "keywords": [
+    "Feexpay",
+    "integration",
+    "mobile",
+    "money"
+  ],
+  "time": "2023-08-09",
+  "homepage": "https://github.com/foxinnovs/feexpay-sdk-php",
+  "license": "MIT",
+  "authors": [
+    {
+     "name": "LOUGBEGNON",
+      "email": "amedeelougbegnon3@gmail.com"
+      "role": "Developer"
+    },
+    {
+      "name": "Foxinnovs",
+      "email": "foxinnovs@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "contact@feexpay.me"
+  },
+  "require": {
+    "php": "^5.5 || ^8.0",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
         "psr-4": {
             "Feexpay\\FeexpayPhp\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "LOUGBEGNON",
-            "email": "amedeelougbegnon3@gmail.com"
-        }
-    ],
-    "require": {
-        "feexpay/feexpay-php": "^1.0"
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/foxinnovs/feexpay-sdk-php"
     }
+  ]
 }
