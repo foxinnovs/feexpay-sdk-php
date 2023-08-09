@@ -158,7 +158,8 @@ This guide explains how to use the Feexpay PHP SDK to easily integrate mobile an
 
 
 creating a route:
-```Route::controller(YourController::class)->group(function () {
+```php
+Route::controller(YourController::class)->group(function () {
     Route::get('payment', 'payment')->name('payment') ;
 }) ;
    ```
