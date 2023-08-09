@@ -28,7 +28,7 @@ vendor/
 Via Composer
 
 ``` bash
-$ composer require Feexpay/FeexpayPhp
+$ composer require feexpay/feexpay-php
 ```
 
 ## Usage
